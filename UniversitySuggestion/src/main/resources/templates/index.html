@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>University Suggestion</title>
+    <style>
+        body{
+            background: linear-gradient(57.4deg, rgb(249, 206, 183) 4.6%, rgb(234, 174, 202) 26%, rgb(210, 182, 226) 49.1%, rgb(173, 209, 242) 86.5%);
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container mt-5 mb-5">
+    <h1 class="mb-5 text-center text-secondary">University Suggestion System</h1>
+    <form action="predict" method="post" class="needs-validation" novalidate id="formID">
+        <div class="form-row mx-auto">
+            <div class="form-group col-md-6">
+                <label for="inputName">Name</label>
+                <input required type="text" class="form-control" id="inputName" placeholder="Enter your Name"
+                       name="name">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter name
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputGender">Gender</label>
+                <select required id="inputGender" class="form-control" name="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please select gender
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input required type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter your email!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input required type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
+                   name="address">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter your address!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSchool">School Attended</label>
+            <input required type="text" class="form-control" id="inputSchool" placeholder="Enter your School"
+                   name="schoolName">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter your school name!
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputQualityOfEducation">Quality Of Education</label>
+                <input step="any" required type="number" class="form-control" id="inputQualityOfEducation" min="0"
+                       name="qualityOfEducation">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Invalid Quality Of Education!
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputQualityOfFaculty">Quality Of Faculty</label>
+                <input step="any" required type="number" class="form-control" id="inputQualityOfFaculty" min="0"
+                       name="qualityOfFaculty">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Invalid Quality Of Faculty!
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputInfluence">Influence</label>
+                <input step="any" required type="number" class="form-control" id="inputInfluence" min="0"
+                       name="influence">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Invalid Influence!
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputScore">Score</label>
+                <input step="any" required type="number" class="form-control" id="inputScore" min="0" name="score"
+                       max="100">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Invalid Score!
+                </div>
+            </div>
+        </div>
+        <button type="submit" id="formBtn" class="btn btn-primary">Predict</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script>
+// Get the form element
+var form = document.querySelector('.needs-validation');
+
+// Add an event listener for the submit button
+form.addEventListener('submit', function(event) {
+  // If the form is invalid, prevent it from submitting
+  if (!form.checkValidity()) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  // Add the "was-validated" class to show the validation results
+  form.classList.add('was-validated');
+});
+
+
+
+
+</script>
+</body>
+</html>
